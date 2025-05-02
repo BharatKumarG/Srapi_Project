@@ -123,7 +123,7 @@ resource "aws_lb" "strapi" {
 
 # Target Groups
 resource "aws_lb_target_group" "blue" {
-  name        = "gbk-strapi-tg-blue"
+  name        = "gbk-strapi-blue"
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
@@ -140,7 +140,7 @@ resource "aws_lb_target_group" "blue" {
 }
 
 resource "aws_lb_target_group" "green" {
-  name        = "gbk-strapi-tg-green"
+  name        = "gbk-strapi-green"
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
