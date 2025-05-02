@@ -189,11 +189,11 @@ resource "aws_ecs_task_definition" "strapi" {
   requires_compatibilities = ["FARGATE"]
   cpu                      = "1024"
   memory                   = "2048"
-  execution_role_arn       = "arn:aws:iam::118273046134:role/ecsTaskExecutionRole1"
+  execution_role_arn       = "arn:aws:iam::767397683604:role/ecsTaskExecutionRole1"  # Updated with your account ID
 
   container_definitions = jsonencode([{
     name      = "gbk-strapi"
-    image     = "118273046134.dkr.ecr.us-east-1.amazonaws.com/gbk-strapi-app:latest"
+    image     = "767397683604.dkr.ecr.us-east-1.amazonaws.com/gbk-strapi-app:latest"
     essential = true
     portMappings = [{
       containerPort = 1337
@@ -249,7 +249,7 @@ resource "aws_codedeploy_app" "strapi" {
 resource "aws_codedeploy_deployment_group" "strapi" {
   app_name               = aws_codedeploy_app.strapi.name
   deployment_group_name  = "gbkbh-strapi-deployment-group"
-  service_role_arn       = "arn:aws:iam::118273046134:role/CodeDeployServiceRole"
+  service_role_arn       = "arn:aws:iam::767397683604:role/CodeDeployServiceRole"  # Updated with your account ID
   deployment_config_name = "CodeDeployDefault.ECSAllAtOnce"
 
   deployment_style {
